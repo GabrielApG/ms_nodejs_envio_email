@@ -80,6 +80,8 @@ Resposta de Erro:
   "error": "Failed to send email",
   "details": "Mensagem de erro"
 }
+```
+
 Health Check
 Método: GET
 
