@@ -129,15 +129,3 @@ Swagger UI: http://localhost:3000/docs
 MailHog: http://localhost:8025
 
 API Base URL: http://localhost:3000
-
-### Como Fazer o Download
-
-1. **Copie o conteúdo acima** e cole em um arquivo chamado `README.md`.
-2. **Ou faça o download**:
-   - Se você estiver no Linux ou macOS, pode usar o comando abaixo para criar o arquivo diretamente:
-     ```bash
-     echo -e '# Projeto de Envio de E-mails\n\nEste projeto é uma aplicação Node.js que permite o envio de e-mails utilizando o **Nodemailer** e o **MailHog** para simular o envio de e-mails em um ambiente de desenvolvimento.\n\n...' > README.md
-     ```
-   - Se preferir, salve o conteúdo em um arquivo manualmente.
-
-Agora você tem um `README.md` completo e pronto para ser usado no seu projeto! 🚀
