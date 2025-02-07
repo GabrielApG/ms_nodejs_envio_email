@@ -1,0 +1,76 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Ms - Envio Email",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000"
+    }
+  ],
+  "paths": {
+    "/health": {
+      "get": {
+        "tags": [
+          "Health Check"
+        ],
+        "summary": "Health Check",
+        "description": "Endpoint for checking the health of the API",
+        "operationId": "get-health",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/send-mail": {
+      "post": {
+        "tags": [
+          "Email"
+        ],
+        "summary": "Send an email",
+        "description": "Endpoint for sending an email",
+        "operationId": "send-mail",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "to": {
+                    "type": "string",
+                    "example": "destinatario@example.com"
+                  },
+                  "subject": {
+                    "type": "string",
+                    "example": "Assunto do E-mail"
+                  },
+                  "body": {
+                    "type": "string",
+                    "example": "Conteúdo do E-mail"
+                  }
+                },
+                "required": [
+                  "to",
+                  "subject",
+                  "body"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Email sent successfully"
+          },
+          "400": {
+            "description": "Bad request"
+          }
+        }
+      }
+    }
+  }
+}

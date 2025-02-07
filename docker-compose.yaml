@@ -1,0 +1,38 @@
+version: "3.8"
+
+services:
+  node:
+    image: ms_envio_emails
+    container_name: ms_envio_emails
+    restart: on-failure
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - NODE_ENV=development
+      - SERVER_PORT=3000
+      - BASE_URL=http://localhost
+      - MAILHOG_HOST=mailhog
+      - MAILHOG_PORT=1025
+    volumes:
+      - .:/usr/app
+    ports:
+      - "3000:3000"
+    networks:
+      - ms_network_node
+    depends_on:
+      - mailhog
+    command: npm run dev
+  mailhog:
+    image: mailhog/mailhog
+    container_name: mailhog
+    restart: always
+    ports:
+      - "8025:8025" # Interface Web
+      - "1025:1025" # SMTP Server
+    networks:
+      - ms_network_node
+
+networks:
+  ms_network_node:
+    driver: bridge
